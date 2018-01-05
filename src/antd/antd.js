@@ -69,7 +69,7 @@ export default class Antd extends Component {
                             <Breadcrumb.Item>Bill</Breadcrumb.Item>
                         </Breadcrumb>
                         <div style={{ padding: 24, background: '#fff', minHeight: 600 }}>
-                            {contentMenu}22222
+                            {contentMenu}
                         </div>
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
