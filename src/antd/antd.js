@@ -5,22 +5,26 @@ import FirstMenu from './first/firstMenu';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
+
 export default class Antd extends Component {
     state = {
         collapsed: false,
+        menuVal: '1'
     };
+
     onCollapse = (collapsed) => {
         console.log(collapsed);
         this.setState({ collapsed });
     }
     showKey = (e) =>{
-        console.log(e.key);
-
+        this.setState ({
+            menuVal : e.key
+        });
     }
     render() {
         let contentMenu;
-        if(1==1){
-
+        if(this.state.menuVal == 1){
+            contentMenu = <FirstMenu/>;
         }
         return (
             <Layout style={{ minHeight: '100vh' }}>

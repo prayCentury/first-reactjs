@@ -4,7 +4,7 @@ export default class FirstMenu extends Component{
     render(){
         return(
             <div>
-                1111
+                11112222
             </div>
         )
     }
