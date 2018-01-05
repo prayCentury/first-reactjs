@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
+import FirstMenu from './first/firstMenu';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -14,9 +15,13 @@ export default class Antd extends Component {
     }
     showKey = (e) =>{
         console.log(e.key);
-        // document.getElementsByClassName("content").html(e.key);
+
     }
     render() {
+        let contentMenu;
+        if(1==1){
+
+        }
         return (
             <Layout style={{ minHeight: '100vh' }}>
                 <Sider
@@ -64,7 +69,7 @@ export default class Antd extends Component {
                             <Breadcrumb.Item>Bill</Breadcrumb.Item>
                         </Breadcrumb>
                         <div style={{ padding: 24, background: '#fff', minHeight: 600 }}>
-                            <div className="content"></div>
+                            {contentMenu}
                         </div>
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
