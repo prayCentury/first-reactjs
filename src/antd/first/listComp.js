@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Table, Button } from 'antd';
+import { Table, Button ,Modal} from 'antd';
 import {listUtils} from '../utils/listUtils';
 
 const data = [];
@@ -21,7 +21,7 @@ const dataVal = {
             console.log(a);
             console.log(b);
             console.log(c);
-            return <a code={c}>{a}</a>
+            return <a code={c}> {a} </a>
         },
     }, {
         title: 'Age',
@@ -45,12 +45,20 @@ const rowSelection = {
 
 export default class ListComp extends Component{
 
-
+    state = {
+        show : false
+    }
+    handleOk = () => {
+        this.setState({
+            show:true
+        })
+    }
 
     render(){
         return(
             <div>
                 {/*{listUtils(rowSelection,dataVal)}*/}
+
                 <Table rowSelection={rowSelection} columns={dataVal.columns} dataSource={dataVal.dataSource} />
             </div>
         )

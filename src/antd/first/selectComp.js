@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Select } from 'antd';
-import { Cascader  } from 'antd';
+import { Select ,Cascader , notification , Button  , Modal} from 'antd';
 
 const Option = Select.Option;
 const value = [
@@ -56,6 +55,10 @@ const options = [{
 
 export default class SelectComp extends Component{
 
+    state = {
+        showModal : false
+    }
+
     componentDidMount (){
         ret = value.map(function (val) {
             return <Option key={val.code}>{val.cn}</Option>;
@@ -64,6 +67,21 @@ export default class SelectComp extends Component{
 
     handleChange = (key) =>{
         console.log(key);
+    }
+
+    notificationHandle = () =>{
+        notification.open({
+            message: 'Notification Title',
+            description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+            duration:1,
+            placement:'bottomRight',
+        })
+    }
+
+    changeState = () => {
+        this.setState({
+            showModal : true
+        })
     }
 
     render(){
@@ -94,6 +112,36 @@ export default class SelectComp extends Component{
                 >
 
                 </Cascader>
+                <br/>
+                3.通知提醒框
+                <br/>
+                <Button
+                    type="primary"
+                    onClick={this.notificationHandle}
+                >
+                    open a notification!
+                </Button>
+
+                <span style={{marginLeft:'5px'}}>
+                    <Button
+                        type="primary"
+                        onClick={this.changeState}
+                    >
+                        showModal!
+                    </Button>
+                </span>
+
+                <Modal
+                    title="Basic Modal"
+                    visible={this.state.showModal}
+                    onOk={()=>{this.setState({showModal:false})}}
+                    onCancel={()=>{this.setState({showModal:false})}}
+                >
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                </Modal>
+
             </div>
         )
     }
