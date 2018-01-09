@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import FirstMenu from './first/firstMenu';
+import SecondMenu from './secondMenu/secondMenu';
+import FifthMenu from './fifth/fifthMenu';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -17,6 +19,7 @@ export default class Antd extends Component {
         this.setState({ collapsed });
     }
     showKey = (e) =>{
+        console.log(e.key);
         this.setState ({
             menuVal : e.key
         });
@@ -25,6 +28,10 @@ export default class Antd extends Component {
         let contentMenu;
         if(this.state.menuVal == 1){
             contentMenu = <FirstMenu/>;
+        }else if(this.state.menuVal == 2){
+            contentMenu = <SecondMenu/>;
+        }else if(this.state.menuVal == 9){
+            contentMenu = <FifthMenu/>;
         }
         return (
             <Layout style={{ minHeight: '100vh' }}>
@@ -38,7 +45,7 @@ export default class Antd extends Component {
                           onClick={this.showKey}>
                         <Menu.Item key="1">
                             <Icon type="pie-chart" />
-                            <span>Option 1</span>
+                            <span>antd demo</span>
                         </Menu.Item>
                         <Menu.Item key="2">
                             <Icon type="desktop" />
@@ -72,8 +79,11 @@ export default class Antd extends Component {
                             <Breadcrumb.Item>User</Breadcrumb.Item>
                             <Breadcrumb.Item>Bill</Breadcrumb.Item>
                         </Breadcrumb>
-                        <div style={{ padding: 24, background: '#fff', minHeight: 600 }}>
+                        <div style={{ padding: 24, background: '#fff', minHeight: 300 }}>
                             {contentMenu}
+                        </div>
+                        <div style={{ padding: 24, background: '#fff', minHeight: 600 ,marginTop:10 }}>
+
                         </div>
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>

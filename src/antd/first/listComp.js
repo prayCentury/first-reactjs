@@ -4,12 +4,24 @@ import {listUtils} from '../utils/listUtils';
 
 const data = [];
 for (let i = 0; i < 46; i++) {
-    data.push({
-        key: i,
-        name: `Edward King ${i}`,
-        age: 32,
-        address: `London, Park Lane no. ${i}`,
-    });
+    if((i%2) == 0){
+        data.push({
+            key: i,
+            name: `Edward King ${i}`,
+            age: 32,
+            address: `London, Park Lane no. ${i}`,
+            sex:'male',
+        });
+    }else {
+        data.push({
+            key: i,
+            name: `Edward King ${i}`,
+            age: 32,
+            address: `London, Park Lane no. ${i}`,
+            sex:'female',
+        });
+    }
+
 }
 
 const dataVal = {
@@ -23,10 +35,24 @@ const dataVal = {
             console.log(c);
             return <a code={c}> {a} </a>
         },
+        className:'listYs',
+        filters: [
+            { text: 'King', value: 'King' },
+            { text: 'Edward', value: 'Edward' },
+            { text: '1', value: 'Edward King 1' },
+        ],
+        onFilter: (value, record) => record.name.indexOf(value) === 0,
+    }, {
+        title: 'Sex',
+        dataIndex: 'sex',
+        filters: [
+            { text: 'male', value: 'male' },
+            { text: 'female', value: 'female' },
+        ],
+        onFilter: (value, record) => record.sex.indexOf(value) === 0,
     }, {
         title: 'Age',
         dataIndex: 'age',
-        display:false
     }, {
         title: 'Address',
         dataIndex: 'address',
@@ -58,8 +84,14 @@ export default class ListComp extends Component{
         return(
             <div>
                 {/*{listUtils(rowSelection,dataVal)}*/}
-
-                <Table rowSelection={rowSelection} columns={dataVal.columns} dataSource={dataVal.dataSource} />
+                {/*<div className="flexBox">*/}
+                    {/*<div style={{flex:1,backgroundColor:'blue'}}>2</div>*/}
+                    {/*<div className="cardBox" style={{flex:1,backgroundColor:'yellow'}}>3</div>*/}
+                    {/*<div className="cardBox" style={{flex:1,backgroundColor:'green'}}>4</div>*/}
+                {/*</div>*/}
+                <div style={{marginTop:'50'}}>
+                    <Table rowSelection={rowSelection} columns={dataVal.columns} dataSource={dataVal.dataSource} />
+                </div>
             </div>
         )
     }
