@@ -3,7 +3,7 @@ import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 import FirstMenu from './first/firstMenu';
 import SecondMenu from './secondMenu/secondMenu';
-import FifthMenu from './fifth/fifthMenu';
+import {FifthMenu} from './fifth/fifthMenu';
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
@@ -11,7 +11,7 @@ const SubMenu = Menu.SubMenu;
 export default class Antd extends Component {
     state = {
         collapsed: false,
-        menuVal: '1'
+        menuVal: '9'
     };
 
     onCollapse = (collapsed) => {
