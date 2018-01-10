@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import ModalDesign from './modalDesign';
 import { Icon , DatePicker ,LocaleProvider ,Input  }  from 'antd';
 import 'moment/locale/zh-cn';
 const Search = Input.Search;
@@ -58,7 +59,11 @@ export default class SecondMenu extends Component {
                 <div className="cardBox" style={{flex:1,backgroundColor:'#5cdbd3'}}>
                     展示props:{this.props.secondProps.c}
                 </div>
-                <div className="cardBox" style={{flex:1,backgroundColor:'#bae7ff'}}>3</div>
+                <div className="cardBox" style={{flex:1,backgroundColor:'#bae7ff'}}>
+                    对话框modal:
+                    <br/>
+                    <ModalDesign/>
+                </div>
                 <div className="cardBox" style={{flex:1,backgroundColor:'rgba(0, 0, 0, 0.25)'}}>4</div>
             </div>
         )
