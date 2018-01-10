@@ -30,9 +30,6 @@ const dataVal = {
         dataIndex: 'name',
         // render : text => <a href='#' code='1'>{text}</a>,
         render : (a,b,c)=>{
-            console.log(a);
-            console.log(b);
-            console.log(c);
             return <a code={c}> {a} </a>
         },
         className:'listYs',
@@ -74,11 +71,11 @@ export default class ListComp extends Component{
     state = {
         show : false
     }
-    handleOk = () => {
-        this.setState({
-            show:true
-        })
-    }
+    // handleOk = () => {
+    //     this.setState({
+    //         show:true
+    //     })
+    // }
 
     render(){
         return(

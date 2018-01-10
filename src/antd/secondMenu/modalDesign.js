@@ -1,5 +1,7 @@
 import React , {Component} from 'react';
 import {Modal , Button , Input} from 'antd';
+import ListComp from '../first/listComp';
+import {ModalUtils }from '../utils/modalUtils';
 
 export default class ModalDesign extends Component{
     state = {
@@ -26,7 +28,6 @@ export default class ModalDesign extends Component{
     }
 
     render(){
-        let inputVal ;
         return(
             <div>
                 <Modal
@@ -39,14 +40,20 @@ export default class ModalDesign extends Component{
                     maskClosable={false}
                     // width={800}
                 >
-                    <Input.Search/>
-                    <Button>
-                        ninininishuonisuo
-                    </Button>
+                    <Input onChange={val=> console.log(val)}/>
+                    <ListComp/>
                 </Modal>
                 <Button type="primary" onClick={this.showModal}>
                     显示对话框
-                </Button>{inputVal}
+                </Button>
+
+                {/*<ModalUtils a="a"></ModalUtils>*/}
+
+                <Button type="primary">
+                    显示对话框
+                </Button>
+
+
             </div>
         )
     }

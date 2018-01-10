@@ -33,7 +33,7 @@ export default class Antd extends Component {
         if(this.state.menuVal == 1){
             contentMenu = <FirstMenu/>;
         }else if(this.state.menuVal == 2){
-            contentMenu = <SecondMenu secondProps={secondProps}/>;
+            contentMenu = <SecondMenu a={this.state.menuVal} b="b"/>;
         }else if(this.state.menuVal == 9){
             contentMenu = <FifthMenu/>;
         }

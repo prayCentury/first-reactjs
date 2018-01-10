@@ -3,6 +3,8 @@ import moment from 'moment';
 import ModalDesign from './modalDesign';
 import { Icon , DatePicker ,LocaleProvider ,Input  }  from 'antd';
 import 'moment/locale/zh-cn';
+
+import {modalUtils }from '../utils/modalUtils';
 const Search = Input.Search;
 
 
@@ -32,6 +34,7 @@ export default class SecondMenu extends Component {
     }
 
     render() {
+        const {a,b}  = this.props
         return (
             <div className="flexBox">
                 <div style={{display:'flex',flex:1,flexDirection:'column',backgroundColor:'#5cdbd3'}}>
@@ -57,14 +60,17 @@ export default class SecondMenu extends Component {
                     <div style={{flex:1}}>{this.state.data}{this.state.customerCode}</div>
                 </div>
                 <div className="cardBox" style={{flex:1,backgroundColor:'#5cdbd3'}}>
-                    展示props:{this.props.secondProps.c}
+                    展示props:{a+b}
                 </div>
                 <div className="cardBox" style={{flex:1,backgroundColor:'#bae7ff'}}>
                     对话框modal:
                     <br/>
                     <ModalDesign/>
                 </div>
-                <div className="cardBox" style={{flex:1,backgroundColor:'rgba(0, 0, 0, 0.25)'}}>4</div>
+                <div className="cardBox" style={{flex:1,backgroundColor:'rgba(0, 0, 0, 0.25)'}}>
+                    4444
+
+                </div>
             </div>
         )
     }
