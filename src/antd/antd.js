@@ -11,7 +11,7 @@ const SubMenu = Menu.SubMenu;
 export default class Antd extends Component {
     state = {
         collapsed: false,
-        menuVal: '9'
+        menuVal: '2'
     };
 
     onCollapse = (collapsed) => {
@@ -26,10 +26,14 @@ export default class Antd extends Component {
     }
     render() {
         let contentMenu;
+        const secondProps = {
+            a:1,
+            b:2,
+        }
         if(this.state.menuVal == 1){
             contentMenu = <FirstMenu/>;
         }else if(this.state.menuVal == 2){
-            contentMenu = <SecondMenu/>;
+            contentMenu = <SecondMenu secondProps={secondProps}/>;
         }else if(this.state.menuVal == 9){
             contentMenu = <FifthMenu/>;
         }
